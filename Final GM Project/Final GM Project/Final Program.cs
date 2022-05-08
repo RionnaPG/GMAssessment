@@ -4,6 +4,8 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using System.Collections;
 using System.Globalization;
+using System.Text.RegularExpressions;
+
 var csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
 {
     HasHeaderRecord = false,
@@ -12,14 +14,31 @@ var csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
     Delimiter = ";",
 };
 
-void removeDuplicates(ArrayList myList) //finds and removes duplicates from the arraylist
-{ 
-    
-    for (int i=0;i<myList.Count;i++)
+
+
+bool isValid(string name)//method to check if a string contains alphabets only
+{
+    bool isValid = false;
+    for (int i = 0; i < name.Length; i++)
     {
-        for (int j = i+1; j < myList.Count; j++)
+        if (Regex.IsMatch(name, @"^[A-Za-z]+$"))//uses regular expression to check that the given contains only alphabets
         {
-            if (myList[j].ToString()==myList[i].ToString())
+            isValid = true;// Returns true only if the string contains alphabets only, otherwise the method returns false
+        }
+    }
+
+    return isValid;
+
+}
+
+void removeDuplicates(ArrayList myList) //finds and removes duplicates from the arraylist
+{
+
+    for (int i = 0; i < myList.Count; i++)
+    {
+        for (int j = i + 1; j < myList.Count; j++)
+        {
+            if (myList[j].ToString() == myList[i].ToString())
             {
                 myList.Remove(myList[j]);
 
@@ -90,6 +109,63 @@ int avgMatch(int num1, int num2)
 {
     return ((num1 + num2) / 2);//returns the average between 2 values
 }
+
+Console.WriteLine("Welcome. Please select an option from the ones entered below:");
+Console.WriteLine("1: Get data from user");
+Console.WriteLine("2: Get data from user");
+string option = Console.ReadLine();
+while (!(Regex.IsMatch(option, @"^[1-2]+$")))
+{
+    Console.WriteLine("Please select an option from the options provided above");
+    option = Console.ReadLine();
+
+}
+
+if (option == "1")
+{
+    Console.WriteLine("Enter in the name of the first person: ");
+    string name1 = (Console.ReadLine());//Gets the first persons name
+    while (isValid(name1) == false)//if the string contains character that are not a part of the alphabet
+    {
+        Console.WriteLine("Re-enter in the first name (Alphabets only): ");//we ask a user to re-enter the name
+        name1 = (Console.ReadLine());//until the string contains only alphabets. This is also done when entering the name of the second person
+    }
+
+    Console.WriteLine("Enter in the name of the second person: ");
+    string name2 = Console.ReadLine();
+    while (isValid(name2) == false)
+    {
+        Console.WriteLine("Re-enter in the Second name (Alphabets only): ");
+        name2 = (Console.ReadLine());
+    }
+
+    int s1, s2;
+
+    s1 = matchCalc(name1, name2);
+    if (s1 >= 80)
+    {
+        Console.WriteLine(name1 + " matches " + name2 + " " + s1 + "%, good match!");
+    }
+    else
+    {
+        Console.WriteLine(name1 + " matches " + name2 + " " + s1 + "%");
+    }
+
+    s2 = matchCalc(name2, name1);
+    if (s2 >= 80)
+    {
+        Console.WriteLine(name2 + " matches " + name1 + " " + s2 + "%, good match!");
+    }
+    else
+    {
+        Console.WriteLine(name2 + " matches " + name1 + " " + s2 + "%");
+    }
+
+    Console.WriteLine("The Average match score between " + name1 + " and " + name2 + " is " + ((s1 + s2) / 2) + "%");
+
+}
+if (option == "2")
+{
 
     Console.WriteLine("Enter in the file name with full path and csv file extention: ");
     string fileName = Console.ReadLine();
@@ -215,4 +291,4 @@ int avgMatch(int num1, int num2)
 
 
 
-
+}
