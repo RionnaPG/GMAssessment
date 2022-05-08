@@ -65,7 +65,7 @@ int matchCalc(string name1, string name2)
     while ((Int32.TryParse(sl1, out cNumber) == false) || (Int32.TryParse(sl1, out cNumber) == true && (cNumber < 10 || cNumber > 100)))//loops until the string containing the count only has 2 digits
     {
         //Console.WriteLine(sl1);
-        while (sl1.Length > 1)//while the length is greater than zero
+        while (sl1.Length > 1)//while the length is greater than one
         {
             counter = (Int32.Parse(sl1.Substring(0, 1)) + (Int32.Parse(sl1.Substring(sl1.Length - 1, 1))));//adds current the first and last value of the string 
 
