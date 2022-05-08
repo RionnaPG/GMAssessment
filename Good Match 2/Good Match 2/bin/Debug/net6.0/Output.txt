@@ -1,0 +1,48 @@
+Kimberly matches Billy 20%
+Billy matches Kimberly 20%
+The average match score between Kimberly and Billy is 20%
+
+Kimberly matches Tommy 11%
+Tommy matches Kimberly 20%
+The average match score between Kimberly and Tommy is 15%
+
+Kimberly matches Zack 91%, Good Match
+Zack matches Kimberly 91%, Good Match
+The average match score between Kimberly and Zack is 91%, Good Match
+
+Kimberly matches Jason 20%
+Jason matches Kimberly 20%
+The average match score between Kimberly and Jason is 20%
+
+Trini matches Billy 71%
+Billy matches Trini 71%
+The average match score between Trini and Billy is 71%
+
+Trini matches Tommy 71%
+Tommy matches Trini 71%
+The average match score between Trini and Tommy is 71%
+
+Trini matches Zack 52%
+Zack matches Trini 70%
+The average match score between Trini and Zack is 61%
+
+Trini matches Jason 53%
+Jason matches Trini 71%
+The average match score between Trini and Jason is 62%
+
+Billy matches Billy 71%
+Billy matches Billy 71%
+The average match score between Billy and Billy is 71%
+
+Billy matches Tommy 71%
+Tommy matches Billy 71%
+The average match score between Billy and Tommy is 71%
+
+Billy matches Zack 79%
+Zack matches Billy 61%
+The average match score between Billy and Zack is 70%
+
+Billy matches Jason 89%, Good Match
+Jason matches Billy 71%
+The average match score between Billy and Jason is 80%, Good Match
+

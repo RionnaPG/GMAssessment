@@ -1,14 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Text.RegularExpressions;
 
-bool isValid(string name)
+bool isValid(string name)//method to check if a string contains alphabets only
 {
     bool isValid = false;
     for (int i = 0; i < name.Length; i++)
     {
-        if (Regex.IsMatch(name, @"^[a-z]+$"))
+        if (Regex.IsMatch(name, @"^[a-z]+$"))//uses regular expression to check that the given contains only alphabets
         {
-            isValid = true;
+            isValid = true;// Returns true only if the string contains alphabets only, otherwise the method returns false
         }
     }
 
