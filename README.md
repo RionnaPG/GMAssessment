@@ -6,3 +6,5 @@ Good Match 2/Good Match 2/bin/Debug/net6.0/Output.txt contains the output text f
 
 Final GM Project contains the solution that combines part 1 and part 2.
 Final GM Project/Final GM Project/bin/Debug/net6.0/Output.txt contains the output text file for the Final GM Project.
+
+Test.csv is used to test if the solution for part 2 works correctly.
