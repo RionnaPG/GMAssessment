@@ -141,7 +141,7 @@ int avgMatch(int num1, int num2)
                  }
                  if ((csvReader.GetField(1).ToLower() == "f"))// if the letter after the semi-colon is "f", the name is added to the arraylist that will contain the firstname of females
                   {
-                female.Add(csvReader.GetField(0));
+                        female.Add(csvReader.GetField(0));
 
                  }
 
