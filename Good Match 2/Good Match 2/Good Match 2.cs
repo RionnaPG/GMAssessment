@@ -4,6 +4,8 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using System.Collections;
 using System.Globalization;
+using System.Text.RegularExpressions;
+
 var csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
 {
     HasHeaderRecord = false,
@@ -11,6 +13,21 @@ var csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
     AllowComments = true,
     Delimiter = ";",
 };
+
+bool isValid(string name)//method to check if a string contains alphabets only
+{
+    bool isValid = false;
+    for (int i = 0; i < name.Length; i++)
+    {
+        if (Regex.IsMatch(name, @"^[A-Za-z]+$"))//uses regular expression to check that the given contains only alphabets
+        {
+            isValid = true;// Returns true only if the string contains alphabets only, otherwise the method returns false
+        }
+    }
+
+    return isValid;
+
+}
 
 void removeDuplicates(ArrayList myList) //finds and removes duplicates from the arraylist
 { 
@@ -114,14 +131,20 @@ int avgMatch(int num1, int num2)
         while (csvReader.Read()) //Reads each line in the csv file
         {
             //Console.WriteLine(csvReader.GetField(0));
-            if ((csvReader.GetField(1).ToLower() == "m"))// if the letter after the semi-colon is "m", the name is added to the arraylist that will contain the firstname of males
+           
+            if (isValid(csvReader.GetField(0))==true)
             {
-                male.Add(csvReader.GetField(0));
+                 if ((csvReader.GetField(1).ToLower() == "m"))// if the letter after the semi-colon is "m", the name is added to the arraylist that will contain the firstname of males
+                 {
+                        male.Add(csvReader.GetField(0));
 
-            }
-            if ((csvReader.GetField(1).ToLower() == "f"))// if the letter after the semi-colon is "f", the name is added to the arraylist that will contain the firstname of females
-            {
+                 }
+                 if ((csvReader.GetField(1).ToLower() == "f"))// if the letter after the semi-colon is "f", the name is added to the arraylist that will contain the firstname of females
+                  {
                 female.Add(csvReader.GetField(0));
+
+                 }
+
 
             }
 

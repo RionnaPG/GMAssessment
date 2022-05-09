@@ -190,14 +190,20 @@ if (option == "2")
         while (csvReader.Read()) //Reads each line in the csv file
         {
             //Console.WriteLine(csvReader.GetField(0));
-            if ((csvReader.GetField(1).ToLower() == "m"))// if the letter after the semi-colon is "m", the name is added to the arraylist that will contain the firstname of males
-            {
-                male.Add(csvReader.GetField(0));
 
-            }
-            if ((csvReader.GetField(1).ToLower() == "f"))// if the letter after the semi-colon is "f", the name is added to the arraylist that will contain the firstname of females
+            if (isValid(csvReader.GetField(0)) == true)
             {
-                female.Add(csvReader.GetField(0));
+                if ((csvReader.GetField(1).ToLower() == "m"))// if the letter after the semi-colon is "m", the name is added to the arraylist that will contain the firstname of males
+                {
+                    male.Add(csvReader.GetField(0));
+
+                }
+                if ((csvReader.GetField(1).ToLower() == "f"))// if the letter after the semi-colon is "f", the name is added to the arraylist that will contain the firstname of females
+                {
+                    female.Add(csvReader.GetField(0));
+
+                }
+
 
             }
 
